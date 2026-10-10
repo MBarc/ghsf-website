@@ -2,3 +2,4 @@
 start-blender.cmd
 __pycache__/
 .claude/
+.wrangler/
