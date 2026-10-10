@@ -1,0 +1,150 @@
+<title>GHSF Ghost Options</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: round-2 sheet, the viewfinder badge with four ghost options in a 2-up grid, then real-size strip. Deliberately single dark theme (garment black). */
+:root {
+  color-scheme: dark;
+  --c-black: #0B0D0A; --c-lime: #8BE234; --c-deep: #3F7A2A; --c-bone: #EDEFE6;
+  --page: #111410; --panel: #181c16; --line: #2a3126; --text: #dfe3d6; --muted: #8d9786;
+  --f-display: "Alfa Slab One", Georgia, serif;
+  --f-label: "Oswald", "Arial Narrow", sans-serif;
+  --f-body: "Barlow", system-ui, sans-serif;
+  --bg: var(--c-black); --c1: var(--c-lime); --c2: var(--c-deep); --c3: var(--c-bone);
+}
+body { background: var(--page); color: var(--text); font: 16px/1.55 var(--f-body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 80px; display: grid; gap: 44px; }
+h1, h2 { font-family: var(--f-label); text-transform: uppercase; letter-spacing: .04em; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.05; }
+h2 { font-size: 24px; }
+p { margin: 0; max-width: 66ch; }
+.eyebrow { font: 500 13px var(--f-label); letter-spacing: .16em; text-transform: uppercase; color: var(--c-lime); }
+header { display: grid; gap: 14px; }
+.changes { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 13px var(--f-label); letter-spacing: .06em; text-transform: uppercase; padding: 5px 10px; border: 1px solid var(--line); border-radius: 3px; }
+.chip s { color: var(--muted); }
+
+.options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+@media (max-width: 760px) { .options { grid-template-columns: minmax(0, 1fr); } }
+.opt { background: var(--panel); border: 1px solid var(--line); padding: 20px; display: grid; gap: 14px; align-content: start; }
+.opt-head { display: grid; gap: 4px; }
+.opt-head .n { font: 600 13px var(--f-label); letter-spacing: .12em; text-transform: uppercase; color: var(--c-lime); }
+.opt-head p { color: var(--muted); font-size: 15px; }
+.badge { background: var(--c-black); display: grid; place-items: center; padding: 22px; }
+.badge svg { width: 100%; max-width: 340px; height: auto; }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.pair figure { margin: 0; display: grid; gap: 6px; }
+.sw { display: grid; place-items: center; padding: 12px; min-height: 150px; }
+.sw svg { width: 100%; max-width: 130px; height: auto; }
+.cap { font: 500 12px var(--f-label); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.dark { background: var(--c-black); }
+.mono { --c1: var(--c-bone); --c2: var(--c-bone); --c3: var(--c-bone); --bg: #34383c; background: #34383c; }
+
+.real { background: var(--c-black); border: 1px solid var(--line); padding: 20px; display: flex; flex-wrap: wrap; gap: 22px; overflow-x: auto; }
+.real figure { margin: 0; display: grid; gap: 6px; }
+.real svg { width: 3.75in; max-width: 100%; height: auto; }
+.ask { background: var(--panel); border: 1px solid var(--line); padding: 24px; display: grid; gap: 10px; }
+.ask ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 70ch; }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- 1 Classic sheet: friendly, round scallop hem -->
+    <symbol id="g1" viewBox="0 0 160 150">
+      <path d="M80,8 C42,8 22,38 22,74 L22,128 C22,140 34,144 42,134 C48,126 56,126 62,136 C68,146 92,146 98,136 C104,126 112,126 118,134 C126,144 138,140 138,128 L138,74 C138,38 118,8 80,8 Z"
+        fill="var(--c3)" stroke="var(--bg)" stroke-width="6" paint-order="stroke" stroke-linejoin="round"/>
+      <ellipse cx="61" cy="66" rx="9" ry="14" fill="var(--bg)"/>
+      <ellipse cx="99" cy="66" rx="9" ry="14" fill="var(--bg)"/>
+      <ellipse cx="80" cy="102" rx="7" ry="9" fill="var(--bg)"/>
+    </symbol>
+    <!-- 2 Wisp: tail sweeps off to the side -->
+    <symbol id="g2" viewBox="0 0 160 150">
+      <path d="M72,8 C40,8 22,32 22,62 C22,90 32,108 42,122 C52,136 68,144 92,144 C114,144 132,136 148,120 C134,124 120,122 112,116 C126,110 134,100 136,86 C126,94 114,96 106,92 C116,82 122,72 122,60 C122,30 104,8 72,8 Z"
+        fill="var(--c3)" stroke="var(--bg)" stroke-width="6" paint-order="stroke" stroke-linejoin="round"/>
+      <ellipse cx="56" cy="58" rx="8" ry="13" fill="var(--bg)" transform="rotate(-8 56 58)"/>
+      <ellipse cx="88" cy="58" rx="8" ry="13" fill="var(--bg)" transform="rotate(8 88 58)"/>
+      <ellipse cx="72" cy="92" rx="6" ry="9" fill="var(--bg)"/>
+    </symbol>
+    <!-- 3 Boo: arms up, tattered hem, mischievous grin -->
+    <symbol id="g3" viewBox="0 0 160 150">
+      <path d="M80,10 C50,10 36,32 36,58 L36,68 C26,60 14,54 8,58 C12,70 24,82 36,90 L36,126 L50,142 L64,128 L80,144 L96,128 L110,142 L124,126 L124,90 C136,82 148,70 152,58 C146,54 134,60 124,68 L124,58 C124,32 110,10 80,10 Z"
+        fill="var(--c3)" stroke="var(--bg)" stroke-width="6" paint-order="stroke" stroke-linejoin="round"/>
+      <path d="M57,48 L75,58 C75,69 64,72 59,67 C55,62 55,55 57,48 Z" fill="var(--bg)"/>
+      <path d="M103,48 L85,58 C85,69 96,72 101,67 C105,62 105,55 103,48 Z" fill="var(--bg)"/>
+      <path d="M62,84 C72,94 88,94 98,84 C92,102 68,102 62,84 Z" fill="var(--bg)"/>
+    </symbol>
+    <!-- 4 Hooded: draped sheet, dark face, lime eyes -->
+    <symbol id="g4" viewBox="0 0 160 150">
+      <path d="M80,6 C56,6 44,26 42,48 C40,68 36,86 20,108 C12,120 6,130 4,142 C24,136 38,140 50,144 C60,138 70,144 80,146 C90,144 100,138 110,144 C122,140 136,136 156,142 C154,130 148,120 140,108 C124,86 120,68 118,48 C116,26 104,6 80,6 Z"
+        fill="var(--c3)" stroke="var(--bg)" stroke-width="6" paint-order="stroke" stroke-linejoin="round"/>
+      <path d="M80,28 C64,28 58,42 58,56 C58,74 68,86 80,90 C92,86 102,74 102,56 C102,42 96,28 80,28 Z" fill="var(--bg)"/>
+      <ellipse cx="70" cy="58" rx="6" ry="9" fill="var(--c1)"/>
+      <ellipse cx="90" cy="58" rx="6" ry="9" fill="var(--c1)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Ghost Hunters of South Florida · Brand refresh · Round 2</span>
+    <h1>Viewfinder badge: pick the ghost</h1>
+    <p>Concept C with your notes applied. The palm tree and the moon are gone, so the record dot is now the only circle. The ghost is redrawn four ways. Everything else stays the same: the same four threads, and an actual-size chest strip at the bottom.</p>
+    <div class="changes">
+      <span class="chip">Viewfinder ✓</span>
+      <span class="chip"><s>Palm tree</s></span>
+      <span class="chip"><s>Moon</s></span>
+      <span class="chip">New ghost: 4 options</span>
+    </div>
+  </header>
+
+  <section class="options" id="options"></section>
+
+  <section class="real" id="real" aria-label="Chest, 3.75 inch actual size"></section>
+
+  <section class="ask">
+    <span class="eyebrow">What I need from you</span>
+    <h2>Pick a ghost, or tell me what to steal from each</h2>
+    <ul>
+      <li><b>My lean is 1, the classic sheet, or 4, the hooded ghost.</b> Option 1 fits the balanced tone and stitches most cleanly. Option 4 is the closest to the original badge's draped ghost and is the most distinctive, with the lime eyes doing a lot of work.</li>
+      <li>Losing the palm also lost the "South Florida" picture cue, so the tagline carries it alone now. If you want a subtle cue back that isn't a palm, an ibis or a mangrove-root edge are options. Or leave it clean.</li>
+      <li>These are still drafts. The final ghost will be hand-tuned for stitch direction.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+const ghosts = [
+  ["1", "Classic sheet", "Friendly and round, with a scalloped hem. It reads instantly at hat size and is the easiest to stitch."],
+  ["2", "Wisp", "The tail sweeps off to one side, so it feels like it's drifting through the frame. It has the most motion."],
+  ["3", "Boo", "Arms up, a tattered hem and a mischievous grin. The most playful of the four."],
+  ["4", "Hooded", "A draped sheet with a dark face and glowing lime eyes. The closest to the original badge, and a little eerie."],
+];
+const badge = g => `
+  <circle cx="96" cy="54" r="9" fill="var(--c1)"/>
+  <use href="#g${g}" x="98" y="36" width="204" height="191"/>
+  <g fill="none" stroke="var(--c1)" stroke-width="12" stroke-linecap="square">
+    <path d="M60,70 V20 H110"/><path d="M290,20 H340 V70"/><path d="M340,190 V240 H290"/><path d="M110,240 H60 V190"/>
+  </g>
+  <text x="200" y="320" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="80" letter-spacing="3" fill="var(--c1)">GHSF</text>
+  <text x="200" y="360" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="34" letter-spacing="3" fill="var(--c3)">GHOST HUNTERS</text>
+  <text x="200" y="394" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="600" font-size="26" letter-spacing="5" fill="var(--c1)">OF SOUTH FLORIDA</text>`;
+const mark = g => `
+  <g fill="none" stroke="var(--c1)" stroke-width="9" stroke-linecap="square">
+    <path d="M30,40 V12 H58"/><path d="M142,12 H170 V40"/><path d="M170,100 V128 H142"/><path d="M58,128 H30 V100"/>
+  </g>
+  <circle cx="48" cy="30" r="6" fill="var(--c1)"/>
+  <use href="#g${g}" x="44" y="16" width="112" height="105"/>
+  <text x="100" y="188" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="52" fill="var(--c1)">GHSF</text>`;
+
+document.getElementById("options").innerHTML = ghosts.map(([n, name, blurb]) => `
+  <article class="opt">
+    <div class="opt-head"><span class="n">Ghost ${n}</span><h2>${name}</h2><p>${blurb}</p></div>
+    <div class="badge"><svg viewBox="0 0 400 400" role="img" aria-label="Viewfinder badge with ghost ${n}">${badge(n)}</svg></div>
+    <div class="pair">
+      <figure><div class="sw dark"><svg viewBox="0 0 200 200" aria-hidden="true">${mark(n)}</svg></div><figcaption class="cap">Hat mark</figcaption></figure>
+      <figure><div class="sw mono"><svg viewBox="0 0 400 400" aria-hidden="true">${badge(n)}</svg></div><figcaption class="cap">One colour</figcaption></figure>
+    </div>
+  </article>`).join("");
+
+document.getElementById("real").innerHTML = ghosts.map(([n, name]) => `
+  <figure><svg viewBox="0 0 400 400" aria-hidden="true">${badge(n)}</svg><figcaption class="cap">${n} · ${name} · chest 3.75&Prime; actual size</figcaption></figure>`).join("");
+</script>

@@ -1,0 +1,155 @@
+<title>GHSF Ghost Iterations</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: round-3 sheet, eight variations of ghost 1, each card = badge + hat mark at real size. Deliberately single dark theme (garment black). */
+:root {
+  color-scheme: dark;
+  --c-black: #0B0D0A; --c-lime: #8BE234; --c-deep: #3F7A2A; --c-bone: #EDEFE6;
+  --page: #111410; --panel: #181c16; --line: #2a3126; --text: #dfe3d6; --muted: #8d9786;
+  --f-label: "Oswald", "Arial Narrow", sans-serif;
+  --f-body: "Barlow", system-ui, sans-serif;
+  --bg: var(--c-black); --c1: var(--c-lime); --c2: var(--c-deep); --c3: var(--c-bone);
+}
+body { background: var(--page); color: var(--text); font: 16px/1.55 var(--f-body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 80px; display: grid; gap: 40px; }
+h1, h2 { font-family: var(--f-label); text-transform: uppercase; letter-spacing: .04em; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.05; }
+h2 { font-size: 22px; }
+p { margin: 0; max-width: 66ch; }
+.eyebrow { font: 500 13px var(--f-label); letter-spacing: .16em; text-transform: uppercase; color: var(--c-lime); }
+header { display: grid; gap: 14px; }
+.options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 760px) { .options { grid-template-columns: minmax(0, 1fr); } }
+.opt { background: var(--panel); border: 1px solid var(--line); padding: 18px; display: grid; gap: 12px; align-content: start; }
+.opt-head { display: grid; gap: 2px; }
+.opt-head .n { font: 600 13px var(--f-label); letter-spacing: .12em; text-transform: uppercase; color: var(--c-lime); }
+.opt-head p { color: var(--muted); font-size: 15px; }
+.art { background: var(--c-black); display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 12px; align-items: center; padding: 18px; }
+.art svg { width: 100%; height: auto; }
+.art .hat { width: 2.25in; max-width: 100%; justify-self: center; }
+.cap { font: 500 12px var(--f-label); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.ask { background: var(--panel); border: 1px solid var(--line); padding: 24px; display: grid; gap: 10px; }
+.ask ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 70ch; }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="body" d="M80,8 C42,8 22,38 22,74 L22,128 C22,140 34,144 42,134 C48,126 56,126 62,136 C68,146 92,146 98,136 C104,126 112,126 118,134 C126,144 138,140 138,128 L138,74 C138,38 118,8 80,8 Z"/>
+    <g id="face">
+      <ellipse cx="61" cy="66" rx="9" ry="14"/><ellipse cx="99" cy="66" rx="9" ry="14"/><ellipse cx="80" cy="102" rx="7" ry="9"/>
+    </g>
+
+    <!-- 1 Baseline -->
+    <symbol id="v1" viewBox="0 0 160 156">
+      <use href="#body" fill="var(--c3)" stroke="var(--bg)" stroke-width="6" paint-order="stroke"/>
+      <use href="#face" fill="var(--bg)"/>
+    </symbol>
+    <!-- 2 Tall, four pointed scallops -->
+    <symbol id="v2" viewBox="0 0 160 156">
+      <path d="M30,132 Q42.5,158 55,134 Q67.5,158 80,134 Q92.5,158 105,134 Q117.5,158 130,132 L130,66 C130,32 112,4 80,4 C48,4 30,32 30,66 Z"
+        fill="var(--c3)" stroke="var(--bg)" stroke-width="6" paint-order="stroke" stroke-linejoin="round"/>
+      <g fill="var(--bg)"><ellipse cx="64" cy="62" rx="8" ry="13"/><ellipse cx="96" cy="62" rx="8" ry="13"/><ellipse cx="80" cy="96" rx="6" ry="8"/></g>
+    </symbol>
+    <!-- 3 Side-eye: glancing at the record dot -->
+    <symbol id="v3" viewBox="0 0 160 156">
+      <use href="#body" fill="var(--c3)" stroke="var(--bg)" stroke-width="6" paint-order="stroke"/>
+      <g fill="var(--bg)"><ellipse cx="48" cy="60" rx="9" ry="13"/><ellipse cx="84" cy="60" rx="9" ry="13"/><ellipse cx="62" cy="98" rx="6" ry="8"/></g>
+    </symbol>
+    <!-- 4 Tilted, drifting -->
+    <symbol id="v4" viewBox="0 0 160 156">
+      <g transform="rotate(-10 80 78)">
+        <use href="#body" fill="var(--c3)" stroke="var(--bg)" stroke-width="6" paint-order="stroke"/>
+        <use href="#face" fill="var(--bg)"/>
+      </g>
+    </symbol>
+    <!-- 5 Lime halo outline -->
+    <symbol id="v5" viewBox="-6 -6 172 168">
+      <use href="#body" fill="none" stroke="var(--c1)" stroke-width="22" stroke-linejoin="round"/>
+      <use href="#body" fill="var(--c3)" stroke="var(--bg)" stroke-width="10" paint-order="stroke" stroke-linejoin="round"/>
+      <use href="#face" fill="var(--bg)"/>
+    </symbol>
+    <!-- 6 Wave -->
+    <symbol id="v6" viewBox="0 0 172 156">
+      <g transform="translate(6 0)">
+        <use href="#body" fill="var(--c3)" stroke="var(--bg)" stroke-width="6" paint-order="stroke"/>
+        <path d="M26,84 C12,80 2,84 4,92 C6,98 16,100 26,102 Z" fill="var(--c3)"/>
+        <path d="M134,86 C144,72 154,62 160,66 C166,72 152,92 134,104 Z" fill="var(--c3)"/>
+        <use href="#face" fill="var(--bg)"/>
+      </g>
+    </symbol>
+    <!-- 7 Smile -->
+    <symbol id="v7" viewBox="0 0 160 156">
+      <use href="#body" fill="var(--c3)" stroke="var(--bg)" stroke-width="6" paint-order="stroke"/>
+      <g fill="var(--bg)"><ellipse cx="61" cy="64" rx="9" ry="14"/><ellipse cx="99" cy="64" rx="9" ry="14"/>
+        <path d="M60,94 C70,106 90,106 100,94 C96,114 64,114 60,94 Z"/></g>
+    </symbol>
+    <!-- 8 Signal: dissolves into scan lines -->
+    <symbol id="v8" viewBox="0 0 160 164">
+      <g fill="var(--c3)">
+        <path d="M80,8 C42,8 22,38 22,74 L22,120 L138,120 L138,74 C138,38 118,8 80,8 Z"/>
+        <rect x="22" y="128" width="116" height="10" rx="5"/>
+        <rect x="34" y="144" width="92" height="8" rx="4"/>
+        <rect x="50" y="157" width="60" height="6" rx="3"/>
+      </g>
+      <use href="#face" fill="var(--bg)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Ghost Hunters of South Florida · Brand refresh · Round 3</span>
+    <h1>Ghost 1, eight ways</h1>
+    <p>Every option keeps the classic sheet ghost and the viewfinder badge. Each card shows the full badge next to the hat mark, and the hat mark is drawn at real size (2.25&Prime;). Mixing is fine. For example, the Tall body with the Smile, or the Side-eye with the Signal hem.</p>
+  </header>
+
+  <section class="options" id="options"></section>
+
+  <section class="ask">
+    <span class="eyebrow">What I need from you</span>
+    <h2>Pick one, or name the parts to combine</h2>
+    <ul>
+      <li><b>My lean is 3, Side-eye.</b> The ghost glances at the record dot, as if it's just been caught on camera. That gives the badge a small story and fits the balanced tone.</li>
+      <li><b>8, Signal, is the other strong one.</b> The scan lines tie the ghost to the camera. The lines are 6–10 units tall, about 1.5–2.4 mm at chest size, so they stitch fine.</li>
+      <li><b>5, Halo, adds the most stitches</b> (the lime outline is a satin border). It's striking, but busy at hat size.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+const vs = [
+  ["1", "Baseline", "Ghost 1 from round 2, unchanged."],
+  ["2", "Tall", "A slimmer body and four pointed scallops. Reads a little more classic."],
+  ["3", "Side-eye", "It glances at the record dot, as if it's just been caught on camera."],
+  ["4", "Drifting", "Tilted 10°, so it floats instead of standing."],
+  ["5", "Halo", "A lime outline, an embroidery-safe stand-in for the old glow."],
+  ["6", "Wave", "Small arms, one raised in a hello. Friendly."],
+  ["7", "Smile", "The same body with a grin instead of the startled 'O'."],
+  ["8", "Signal", "The hem breaks into scan lines, like a ghost on a bad video feed."],
+];
+const badge = v => `
+  <circle cx="96" cy="54" r="9" fill="var(--c1)"/>
+  <use href="#v${v}" x="98" y="34" width="204" height="199"/>
+  <g fill="none" stroke="var(--c1)" stroke-width="12" stroke-linecap="square">
+    <path d="M60,70 V20 H110"/><path d="M290,20 H340 V70"/><path d="M340,190 V240 H290"/><path d="M110,240 H60 V190"/>
+  </g>
+  <text x="200" y="320" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="80" letter-spacing="3" fill="var(--c1)">GHSF</text>
+  <text x="200" y="360" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="34" letter-spacing="3" fill="var(--c3)">GHOST HUNTERS</text>
+  <text x="200" y="394" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="600" font-size="26" letter-spacing="5" fill="var(--c1)">OF SOUTH FLORIDA</text>`;
+const mark = v => `
+  <g fill="none" stroke="var(--c1)" stroke-width="9" stroke-linecap="square">
+    <path d="M30,40 V12 H58"/><path d="M142,12 H170 V40"/><path d="M170,100 V128 H142"/><path d="M58,128 H30 V100"/>
+  </g>
+  <circle cx="48" cy="30" r="6" fill="var(--c1)"/>
+  <use href="#v${v}" x="44" y="14" width="112" height="109"/>
+  <text x="100" y="188" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="52" fill="var(--c1)">GHSF</text>`;
+
+document.getElementById("options").innerHTML = vs.map(([n, name, blurb]) => `
+  <article class="opt">
+    <div class="opt-head"><span class="n">1.${n}</span><h2>${name}</h2><p>${blurb}</p></div>
+    <div class="art">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Badge, variation ${n}: ${name}">${badge(n)}</svg>
+      <figure style="margin:0;display:grid;gap:6px;justify-items:center"><svg class="hat" viewBox="0 0 200 200" aria-hidden="true">${mark(n)}</svg><figcaption class="cap">Hat 2.25&Prime;</figcaption></figure>
+    </div>
+  </article>`).join("");
+</script>

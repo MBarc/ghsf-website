@@ -1,0 +1,277 @@
+<title>GHSF Logo Concepts</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: one long sheet, a concept per section; big badge left, real-size + variants right. Deliberately single dark theme (garment black). */
+:root {
+  color-scheme: dark;
+  --c-black: #0B0D0A;   /* thread: near-black / garment */
+  --c-lime:  #8BE234;   /* thread: ecto lime */
+  --c-deep:  #3F7A2A;   /* thread: deep green */
+  --c-bone:  #EDEFE6;   /* thread: bone white */
+  --page:    #111410;
+  --panel:   #181c16;
+  --line:    #2a3126;
+  --text:    #dfe3d6;
+  --muted:   #8d9786;
+  --f-display: "Alfa Slab One", Georgia, serif;
+  --f-label:   "Oswald", "Arial Narrow", sans-serif;
+  --f-body:    "Barlow", system-ui, sans-serif;
+
+  /* logo tokens: what each drawn region is stitched in */
+  --bg: var(--c-black); --c1: var(--c-lime); --c2: var(--c-deep); --c3: var(--c-bone);
+  --win: var(--c-lime); --ring-text: var(--c-bone);
+}
+body { background: var(--page); color: var(--text); font: 16px/1.55 var(--f-body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 80px; display: grid; gap: 56px; }
+h1, h2, h3 { font-family: var(--f-label); text-transform: uppercase; letter-spacing: .04em; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.05; }
+h2 { font-size: 28px; }
+h3 { font-size: 13px; letter-spacing: .14em; color: var(--muted); font-weight: 500; }
+p { margin: 0; max-width: 66ch; }
+.eyebrow { font: 500 13px var(--f-label); letter-spacing: .16em; text-transform: uppercase; color: var(--c-lime); }
+
+header { display: grid; gap: 14px; }
+.decided { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.chip { font: 500 13px var(--f-label); letter-spacing: .06em; text-transform: uppercase; padding: 5px 10px; border: 1px solid var(--line); border-radius: 3px; color: var(--text); }
+.threads { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 4px; }
+.thread { display: flex; align-items: center; gap: 8px; font: 500 13px var(--f-label); letter-spacing: .05em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.thread i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid #ffffff30; }
+
+.concept { display: grid; gap: 22px; border-top: 1px solid var(--line); padding-top: 34px; }
+.concept-head { display: grid; gap: 8px; }
+.concept-head .pick { color: var(--c-lime); font: 600 13px var(--f-label); letter-spacing: .12em; text-transform: uppercase; }
+.grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.hero { background: var(--c-black); border: 1px solid var(--line); padding: 28px; display: grid; place-items: center; }
+.hero svg { width: 100%; max-width: 440px; height: auto; }
+.side { display: grid; gap: 14px; min-width: 0; }
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.tile { display: grid; gap: 8px; align-content: start; }
+.swatch { padding: 16px; display: grid; place-items: center; min-height: 160px; border: 1px solid var(--line); overflow: hidden; }
+.swatch svg { width: 100%; max-width: 170px; height: auto; }
+.cap { font: 500 12px var(--f-label); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.real { background: var(--c-black); border: 1px solid var(--line); padding: 18px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; overflow-x: auto; }
+.real figure { margin: 0; display: grid; gap: 8px; justify-items: start; }
+.real .chest { width: 3.75in; max-width: 100%; height: auto; }
+.real .hat { height: 2.25in; width: auto; }
+.spec { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 16px; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.spec b { color: var(--text); font-weight: 500; }
+.ok { color: var(--c-lime); } .warn { color: #e6c35c; }
+
+.mono { --c1: var(--c-bone); --c2: var(--c-bone); --c3: var(--c-bone); --bg: #34383c; --win: #34383c; --ring-text: #34383c; background: #34383c; }
+.light { --bg: var(--c-black); background: #e9e7e1; }
+.heather { background: #6f7a86; }
+
+.verdict { background: var(--panel); border: 1px solid var(--line); padding: 26px; display: grid; gap: 12px; }
+.verdict ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 70ch; }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- shared parts -->
+    <symbol id="ghost" viewBox="20 10 160 150">
+      <path d="M100,20 C70,20 58,45 58,72 L58,110 C58,120 50,130 30,140 C50,142 62,138 70,134 C74,144 82,150 90,146 C94,152 106,152 110,146 C118,150 126,144 130,134 C138,138 150,142 170,140 C150,130 142,120 142,110 L142,72 C142,45 130,20 100,20 Z"
+        fill="var(--c3)" stroke="var(--bg)" stroke-width="6" paint-order="stroke" stroke-linejoin="round"/>
+      <path d="M78,68 L95,78 C95,89 84,93 79,87 C75,82 75,75 78,68 Z" fill="var(--bg)"/>
+      <path d="M122,68 L105,78 C105,89 116,93 121,87 C125,82 125,75 122,68 Z" fill="var(--bg)"/>
+      <ellipse cx="100" cy="104" rx="6" ry="8" fill="var(--bg)"/>
+    </symbol>
+    <symbol id="palm" viewBox="-52 -44 108 148">
+      <g fill="var(--c2)">
+        <path d="M0,0 C4,30 2,60 8,100 L18,100 C11,60 13,30 7,0 Z"/>
+        <path d="M3,0 C-15,-12 -35,-10 -48,2 C-32,-4 -18,-2 3,6 Z"/>
+        <path d="M3,0 C-8,-20 -25,-30 -40,-28 C-25,-22 -12,-12 0,5 Z"/>
+        <path d="M3,0 C10,-22 28,-30 44,-26 C28,-20 16,-10 7,5 Z"/>
+        <path d="M3,0 C20,-10 40,-8 52,4 C36,-2 20,0 6,6 Z"/>
+        <path d="M3,0 C0,-18 4,-32 10,-40 C9,-28 9,-14 7,3 Z"/>
+      </g>
+    </symbol>
+    <symbol id="bat" viewBox="-16 -7 32 13">
+      <path d="M0,0 C-4,-4 -8,-6 -15,-4 C-12,-2 -11,1 -12,4 C-8,2 -5,3 -3,5 L0,2 L3,5 C5,3 8,2 12,4 C11,1 12,-2 15,-4 C8,-6 4,-4 0,0 Z" fill="var(--bg)"/>
+    </symbol>
+    <symbol id="house" viewBox="0 0 160 100">
+      <path d="M0,100 L0,55 L20,55 L20,40 L45,18 L70,40 L70,50 L95,50 L95,25 L102,8 L109,25 L109,50 L120,50 L140,32 L160,50 L160,100 Z" fill="var(--c2)"/>
+      <rect x="38" y="48" width="12" height="16" fill="var(--win)"/>
+      <rect x="97" y="30" width="10" height="14" fill="var(--win)"/>
+      <rect x="132" y="60" width="12" height="16" fill="var(--win)"/>
+    </symbol>
+
+    <!-- A: Shield (evolution of the current badge) -->
+    <symbol id="A" viewBox="0 0 400 460">
+      <circle cx="288" cy="95" r="58" fill="var(--c1)"/>
+      <use href="#bat" x="282" y="70" width="44" height="18"/>
+      <use href="#bat" x="252" y="108" width="30" height="12"/>
+      <use href="#palm" x="35" y="45" width="110" height="150"/>
+      <use href="#house" x="160" y="92" width="150" height="94"/>
+      <path d="M50,175 L350,175 L350,395 L200,450 L50,395 Z" fill="var(--bg)" stroke="var(--c1)" stroke-width="10" stroke-linejoin="round"/>
+      <use href="#ghost" x="120" y="80" width="160" height="150"/>
+      <text x="200" y="318" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="92" letter-spacing="2" fill="var(--c1)" stroke="var(--bg)" stroke-width="6" paint-order="stroke">GHSF</text>
+      <text x="200" y="362" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="38" letter-spacing="2" fill="var(--c3)">GHOST HUNTERS</text>
+      <text x="200" y="398" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="600" font-size="26" letter-spacing="3" fill="var(--c1)">OF SOUTH FLORIDA</text>
+    </symbol>
+    <symbol id="A-mark" viewBox="0 0 200 200">
+      <use href="#ghost" x="50" y="2" width="100" height="94"/>
+      <text x="100" y="160" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="58" fill="var(--c1)" stroke="var(--bg)" stroke-width="5" paint-order="stroke">GHSF</text>
+      <path d="M40,174 L100,194 L160,174" fill="none" stroke="var(--c1)" stroke-width="8"/>
+    </symbol>
+
+    <!-- B: Round patch -->
+    <clipPath id="b-disc"><circle cx="200" cy="200" r="127"/></clipPath>
+    <path id="b-top" d="M55,200 A145,145 0 0 1 345,200"/>
+    <path id="b-bot" d="M30,200 A170,170 0 0 0 370,200"/>
+    <symbol id="B" viewBox="0 0 400 400">
+      <circle cx="200" cy="200" r="195" fill="var(--c1)"/>
+      <circle cx="200" cy="200" r="185" fill="var(--c2)"/>
+      <circle cx="200" cy="200" r="134" fill="var(--c1)"/>
+      <circle cx="200" cy="200" r="127" fill="var(--bg)"/>
+      <g clip-path="url(#b-disc)">
+        <circle cx="240" cy="140" r="50" fill="var(--c1)"/>
+        <use href="#bat" x="236" y="118" width="38" height="16"/>
+        <use href="#palm" x="60" y="70" width="117" height="160"/>
+      </g>
+      <use href="#ghost" x="140" y="84" width="120" height="112"/>
+      <text x="200" y="262" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="62" letter-spacing="1" fill="var(--c1)" stroke="var(--bg)" stroke-width="5" paint-order="stroke">GHSF</text>
+      <text font-family="Oswald, sans-serif" font-weight="700" font-size="34" letter-spacing="4" fill="var(--ring-text)"><textPath href="#b-top" startOffset="50%" text-anchor="middle">GHOST HUNTERS</textPath></text>
+      <text font-family="Oswald, sans-serif" font-weight="600" font-size="30" letter-spacing="4" fill="var(--ring-text)"><textPath href="#b-bot" startOffset="50%" text-anchor="middle">OF SOUTH FLORIDA</textPath></text>
+      <circle cx="35" cy="200" r="8" fill="var(--c1)"/>
+      <circle cx="365" cy="200" r="8" fill="var(--c1)"/>
+    </symbol>
+    <symbol id="B-mark" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="96" fill="var(--c1)"/>
+      <circle cx="100" cy="100" r="86" fill="var(--bg)"/>
+      <use href="#ghost" x="55" y="26" width="90" height="84"/>
+      <text x="100" y="152" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="42" fill="var(--c1)" stroke="var(--bg)" stroke-width="4" paint-order="stroke">GHSF</text>
+    </symbol>
+
+    <!-- C: Viewfinder -->
+    <symbol id="C" viewBox="0 0 400 400">
+      <circle cx="272" cy="86" r="40" fill="var(--c1)"/>
+      <use href="#palm" x="82" y="66" width="84" height="115"/>
+      <use href="#ghost" x="125" y="62" width="150" height="140"/>
+      <g fill="none" stroke="var(--c1)" stroke-width="12" stroke-linecap="square">
+        <path d="M60,70 V20 H110"/><path d="M290,20 H340 V70"/><path d="M340,190 V240 H290"/><path d="M110,240 H60 V190"/>
+      </g>
+      <circle cx="96" cy="54" r="9" fill="var(--c1)"/>
+      <text x="200" y="320" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="80" letter-spacing="3" fill="var(--c1)">GHSF</text>
+      <text x="200" y="360" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="34" letter-spacing="3" fill="var(--c3)">GHOST HUNTERS</text>
+      <text x="200" y="394" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="600" font-size="26" letter-spacing="5" fill="var(--c1)">OF SOUTH FLORIDA</text>
+    </symbol>
+    <symbol id="C-mark" viewBox="0 0 200 200">
+      <g fill="none" stroke="var(--c1)" stroke-width="9" stroke-linecap="square">
+        <path d="M30,40 V12 H58"/><path d="M142,12 H170 V40"/><path d="M170,100 V128 H142"/><path d="M58,128 H30 V100"/>
+      </g>
+      <use href="#ghost" x="52" y="18" width="96" height="90"/>
+      <text x="100" y="188" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="52" fill="var(--c1)">GHSF</text>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Ghost Hunters of South Florida · Brand refresh · Round 1</span>
+    <h1>Three directions for an embroidery-first logo</h1>
+    <p>Each concept is a family of four: a full badge for jacket backs, patches and the website, a chest version, a hat mark, and a one-colour version. All of them use the same four threads, with flat fills, no gradients and no grunge texture. The small panels below are drawn at real size (3.75&Prime; chest, 2.25&Prime; hat) so you can judge how they read at a distance.</p>
+    <div class="decided">
+      <span class="chip">Keep the badge, refresh it</span>
+      <span class="chip">Balanced tone</span>
+      <span class="chip">Chest · hat · jacket back</span>
+      <span class="chip">Classic GHSF palette</span>
+      <span class="chip">The ghost stays</span>
+    </div>
+    <div class="threads">
+      <span class="thread"><i style="background:var(--c-black)"></i>Black #0B0D0A</span>
+      <span class="thread"><i style="background:var(--c-lime)"></i>Ecto lime #8BE234</span>
+      <span class="thread"><i style="background:var(--c-deep)"></i>Deep green #3F7A2A</span>
+      <span class="thread"><i style="background:var(--c-bone)"></i>Bone #EDEFE6</span>
+    </div>
+  </header>
+
+  <section class="concept" id="shield">
+    <div class="concept-head">
+      <span class="pick">Concept A</span>
+      <h2>Shield</h2>
+      <p>This is the current badge, cleaned up. It keeps the shield, the moon, the palm, the house and the ghost rising over the top edge, so it's the closest match to the plaque and the existing shirts. The camcorder and EMF meter are gone because they can't be stitched cleanly at chest size.</p>
+    </div>
+    <div class="grid">
+      <div class="hero"><svg viewBox="0 0 400 460" role="img" aria-label="Concept A full badge"><use href="#A"/></svg></div>
+      <div class="side">
+        <div class="real">
+          <figure><svg class="chest" viewBox="0 0 400 460" aria-hidden="true"><use href="#A"/></svg><figcaption class="cap">Chest, 3.75&Prime; actual size</figcaption></figure>
+          <figure><svg class="hat" viewBox="0 0 200 200" aria-hidden="true"><use href="#A-mark"/></svg><figcaption class="cap">Hat, 2.25&Prime;</figcaption></figure>
+        </div>
+        <div class="tiles">
+          <div class="tile"><div class="swatch mono"><svg viewBox="0 0 400 460" aria-hidden="true"><use href="#A"/></svg></div><span class="cap">One colour, white thread</span></div>
+          <div class="tile"><div class="swatch light"><svg viewBox="0 0 400 460" aria-hidden="true"><use href="#A"/></svg></div><span class="cap">On a light shirt</span></div>
+        </div>
+        <div class="spec">
+          <span>Smallest text at chest</span><b class="ok">≈5.0 mm cap height</b>
+          <span>Outline</span><b>Irregular (the scene breaks the top edge)</b>
+          <span>Patch cost</span><b class="warn">Higher: custom laser-cut edge</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="concept" id="round">
+    <div class="concept-head">
+      <span class="pick">Concept B · my pick</span>
+      <h2>Round patch</h2>
+      <p>The classic club patch. "Ghost Hunters of South Florida" runs around the ring, which lets the tagline be the largest text on the badge instead of the smallest. A round edge is the cheapest patch to make, the ring scales from hat to jacket back, and the hat mark is the same circle with the ring removed.</p>
+    </div>
+    <div class="grid">
+      <div class="hero"><svg viewBox="0 0 400 400" role="img" aria-label="Concept B full badge"><use href="#B"/></svg></div>
+      <div class="side">
+        <div class="real">
+          <figure><svg class="chest" viewBox="0 0 400 400" aria-hidden="true"><use href="#B"/></svg><figcaption class="cap">Chest, 3.75&Prime; actual size</figcaption></figure>
+          <figure><svg class="hat" viewBox="0 0 200 200" aria-hidden="true"><use href="#B-mark"/></svg><figcaption class="cap">Hat, 2.25&Prime;</figcaption></figure>
+        </div>
+        <div class="tiles">
+          <div class="tile"><div class="swatch mono"><svg viewBox="0 0 400 400" aria-hidden="true"><use href="#B"/></svg></div><span class="cap">One colour, white thread</span></div>
+          <div class="tile"><div class="swatch heather"><svg viewBox="0 0 400 400" aria-hidden="true"><use href="#B"/></svg></div><span class="cap">On a grey shirt</span></div>
+        </div>
+        <div class="spec">
+          <span>Smallest text at chest</span><b class="ok">≈5.8 mm cap height</b>
+          <span>Outline</span><b>Circle (standard merrowed edge)</b>
+          <span>Patch cost</span><b class="ok">Lowest</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="concept" id="viewfinder">
+    <div class="concept-head">
+      <span class="pick">Concept C</span>
+      <h2>Viewfinder</h2>
+      <p>The ghost is framed in camera-viewfinder brackets with a record dot, which says "investigators" without drawing the equipment. It's the most minimal and modern of the three and the easiest to stitch, but it's furthest from the current badge.</p>
+    </div>
+    <div class="grid">
+      <div class="hero"><svg viewBox="0 0 400 400" role="img" aria-label="Concept C full badge"><use href="#C"/></svg></div>
+      <div class="side">
+        <div class="real">
+          <figure><svg class="chest" viewBox="0 0 400 400" aria-hidden="true"><use href="#C"/></svg><figcaption class="cap">Chest, 3.75&Prime; actual size</figcaption></figure>
+          <figure><svg class="hat" viewBox="0 0 200 200" aria-hidden="true"><use href="#C-mark"/></svg><figcaption class="cap">Hat, 2.25&Prime;</figcaption></figure>
+        </div>
+        <div class="tiles">
+          <div class="tile"><div class="swatch mono"><svg viewBox="0 0 400 400" aria-hidden="true"><use href="#C"/></svg></div><span class="cap">One colour, white thread</span></div>
+          <div class="tile"><div class="swatch light"><svg viewBox="0 0 400 400" aria-hidden="true"><use href="#C"/></svg></div><span class="cap">On a light shirt</span></div>
+        </div>
+        <div class="spec">
+          <span>Smallest text at chest</span><b class="ok">≈5.0 mm cap height</b>
+          <span>Outline</span><b>Open (no border; sits directly on the garment)</b>
+          <span>Patch cost</span><b>Medium: needs a backing shape</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="verdict">
+    <span class="eyebrow">What to look at</span>
+    <h2>Pick a direction, or mix parts</h2>
+    <ol>
+      <li><b>B, the round patch, is my recommendation.</b> Embroidery is the hard constraint, and B handles it best. Its tagline is the most legible, its edge is the cheapest to make, and its hat mark comes straight out of the badge.</li>
+      <li><b>A is the safe choice</b> if matching the plaque and the existing merch matters more.</li>
+      <li>Mixing parts is fine, for example B's ring with A's haunted house inside.</li>
+    </ol>
+    <p>These are rough mockups. The ghost, palm and lettering will be redrawn properly once you pick a direction. The fonts here are stand-ins: Alfa Slab One for the wordmark and Oswald for the lettering.</p>
+  </section>
+</div>
