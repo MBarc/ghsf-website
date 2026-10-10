@@ -74,8 +74,9 @@ nav a[aria-current="page"] { border-bottom-color: var(--lime); }
 
 /* hero */
 .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
-.hero .vf { max-width: 440px; justify-self: center; width: 100%; }
-@media (max-width: 760px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); } .hero .vf { max-width: 300px; order: -1; } }
+.hero-badge { max-width: 400px; justify-self: center; width: 100%; }
+.hero-badge img { width: 100%; height: auto; }
+@media (max-width: 760px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); } .hero-badge { max-width: 240px; order: -1; } }
 
 /* cards */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
