@@ -29,7 +29,6 @@ h1 { font: 400 clamp(36px, 6vw, 64px)/1.05 var(--f-display); }
 h2 { font: 700 clamp(26px, 3.4vw, 36px)/1.1 var(--f-label); text-transform: uppercase; letter-spacing: .03em; }
 h3 { font: 700 21px/1.2 var(--f-label); text-transform: uppercase; letter-spacing: .04em; }
 p { margin: 0; max-width: 64ch; }
-.eyebrow { font: 600 14px var(--f-label); letter-spacing: .16em; text-transform: uppercase; color: var(--lime); }
 .lead { font-size: 19px; color: var(--bone); }
 .muted { color: var(--muted); }
 
@@ -55,22 +54,7 @@ nav a[aria-current="page"] { border-bottom-color: var(--lime); }
 .btn.ghost:hover { color: var(--black); background: var(--lime); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
 
-/* viewfinder frame: four lime corner brackets */
-.vf {
-  --b: 4px; --l: clamp(22px, 4vw, 40px); --c: var(--lime);
-  position: relative; padding: clamp(18px, 3vw, 32px);
-  background:
-    linear-gradient(var(--c) 0 0) top left / var(--l) var(--b),
-    linear-gradient(var(--c) 0 0) top left / var(--b) var(--l),
-    linear-gradient(var(--c) 0 0) top right / var(--l) var(--b),
-    linear-gradient(var(--c) 0 0) top right / var(--b) var(--l),
-    linear-gradient(var(--c) 0 0) bottom left / var(--l) var(--b),
-    linear-gradient(var(--c) 0 0) bottom left / var(--b) var(--l),
-    linear-gradient(var(--c) 0 0) bottom right / var(--l) var(--b),
-    linear-gradient(var(--c) 0 0) bottom right / var(--b) var(--l);
-  background-repeat: no-repeat;
-}
-.vf.rec::before { content: ""; position: absolute; top: calc(var(--l) * .55); left: calc(var(--l) * .55); width: 10px; height: 10px; border-radius: 50%; background: var(--lime); }
+.btn:disabled { background: transparent; border-color: var(--line); color: var(--muted); cursor: not-allowed; }
 
 /* hero */
 .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
@@ -78,29 +62,14 @@ nav a[aria-current="page"] { border-bottom-color: var(--lime); }
 .hero-badge img { width: 100%; height: auto; }
 @media (max-width: 760px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); } .hero-badge { max-width: 240px; order: -1; } }
 
-/* cards */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
-.card { background: var(--panel); border: 1px solid var(--line); padding: 26px; display: grid; gap: 12px; align-content: start; text-decoration: none; color: var(--bone); }
-a.card:hover { border-color: var(--lime); }
-.card .go { font: 600 14px var(--f-label); letter-spacing: .12em; text-transform: uppercase; color: var(--lime); margin-top: 6px; }
-
-.band { background: var(--deep); }
-.band .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding-block: 40px; }
-.band .btn { background: var(--black); border-color: var(--black); color: var(--lime); }
-.band .btn:hover { background: var(--bone); border-color: var(--bone); color: var(--black); }
-
 .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 56px); }
 @media (max-width: 760px) { .split { grid-template-columns: minmax(0, 1fr); } }
-
-/* draft note: content Michael still needs to supply */
-.draft { border: 2px dashed var(--muted); padding: 20px; color: var(--muted); font-size: 15px; }
-.draft strong { color: var(--bone); font-family: var(--f-label); letter-spacing: .08em; text-transform: uppercase; }
 
 /* form */
 form { display: grid; gap: 20px; }
 fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 20px; min-width: 0; }
 fieldset[disabled] { display: none; }
-legend, label { font: 600 14px var(--f-label); letter-spacing: .1em; text-transform: uppercase; }
+legend, label, .field-label { font: 600 14px var(--f-label); letter-spacing: .1em; text-transform: uppercase; }
 .field { display: grid; gap: 7px; }
 .field small { color: var(--muted); font-size: 14px; }
 input, select, textarea { font: inherit; color: var(--bone); background: var(--panel); border: 1px solid var(--line); padding: 12px 14px; width: 100%; border-radius: 0; }

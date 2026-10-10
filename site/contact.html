@@ -31,9 +31,8 @@
     <section class="section">
       <div class="wrap split">
         <div class="stack">
-          <span class="eyebrow">Contact</span>
-          <h1>Tell us what's going on.</h1>
-          <p class="lead">Ask a question, or request an investigation of a home, business or historic site. Every message reaches the team directly.</p>
+          <h1>Contact</h1>
+          <p class="lead">Ask a question, or request an investigation of a home, business or historic site.</p>
           <p class="muted">If you're requesting an investigation, the more detail the better: when it happens, where in the building, and who's noticed it.</p>
           <div class="stack" id="privacy" style="margin-top:24px">
             <h3>Privacy</h3>
@@ -49,7 +48,7 @@
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
           <div class="field">
-            <span class="eyebrow" style="color:var(--bone)" id="type-label">What can we help with?</span>
+            <span class="field-label" id="type-label">What can we help with?</span>
             <div class="choice" role="radiogroup" aria-labelledby="type-label">
               <label><input type="radio" name="request_type" value="General question" checked> General question</label>
               <label><input type="radio" name="request_type" value="Investigation request"> Request an investigation</label>
@@ -96,7 +95,8 @@
             <textarea id="message" name="message" required></textarea>
           </div>
 
-          <div><button class="btn" type="submit">Send</button></div>
+          <!-- Until WEB3FORMS_ACCESS_KEY is replaced with the real key, the form can't send. Remove "disabled" and the note together. -->
+          <div class="btn-row" style="align-items:center"><button class="btn" type="submit" disabled>Send</button><span class="muted">The form isn't connected yet, so messages can't be sent from it.</span></div>
         </form>
       </div>
     </section>
