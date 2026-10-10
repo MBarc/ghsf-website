@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact · Ghost Hunters of South Florida</title>
+  <meta name="description" content="Contact Ghost Hunters of South Florida or request a paranormal investigation.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow:wght@400;500;600&family=Oswald:wght@600;700&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/analytics.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="img/ghsf-mark.svg" alt=""><span>Ghost Hunters<br>of South Florida</span></a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="merch.html">Merch</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="wrap split">
+        <div class="stack">
+          <span class="eyebrow">Contact</span>
+          <h1>Tell us what's going on.</h1>
+          <p class="lead">Ask a question, or request an investigation of a home, business or historic site. Every message reaches the team directly.</p>
+          <p class="muted">If you're requesting an investigation, the more detail the better: when it happens, where in the building, and who's noticed it.</p>
+          <div class="stack" id="privacy" style="margin-top:24px">
+            <h3>Privacy</h3>
+            <p class="muted">This form sends your details to our inbox through Web3Forms, a form-delivery service. We only use them to reply to you. We use PostHog to see how people use this site, such as which pages they visit. It never records what you type into this form.</p>
+          </div>
+        </div>
+
+        <form id="contact" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="GHSF website: general question">
+          <input type="hidden" name="from_name" value="GHSF website">
+          <input type="hidden" name="redirect" value="https://ghosthunters.michaelbarcelo.com/thanks.html">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+          <div class="field">
+            <span class="eyebrow" style="color:var(--bone)" id="type-label">What can we help with?</span>
+            <div class="choice" role="radiogroup" aria-labelledby="type-label">
+              <label><input type="radio" name="request_type" value="General question" checked> General question</label>
+              <label><input type="radio" name="request_type" value="Investigation request"> Request an investigation</label>
+            </div>
+          </div>
+
+          <div class="two">
+            <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          </div>
+
+          <fieldset id="investigation" disabled>
+            <div class="two">
+              <div class="field">
+                <label for="location_type">Type of place</label>
+                <select id="location_type" name="location_type" required>
+                  <option value="">Choose one</option>
+                  <option>Home</option>
+                  <option>Business</option>
+                  <option>Public or historic site</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field"><label for="city">City or area</label><input id="city" name="city" required><small>No street address yet. We'll ask for it later.</small></div>
+            </div>
+            <div class="two">
+              <div class="field">
+                <label for="duration">How long has it been happening?</label>
+                <select id="duration" name="duration">
+                  <option value="">Choose one</option>
+                  <option>Just started</option>
+                  <option>A few weeks</option>
+                  <option>Months</option>
+                  <option>Years</option>
+                </select>
+              </div>
+              <div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+            </div>
+            <div class="field"><label for="best_time">Best way and time to reach you</label><input id="best_time" name="best_time" placeholder="e.g. text, weekday evenings"></div>
+          </fieldset>
+
+          <div class="field">
+            <label for="message" id="message-label">Your message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <div><button class="btn" type="submit">Send</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© Ghost Hunters of South Florida</span>
+      <a href="contact.html#privacy">Privacy</a>
+    </div>
+  </footer>
+
+  <script>
+    // Show the investigation fields only when that option is picked. A disabled fieldset is hidden and not submitted.
+    (function () {
+      var form = document.getElementById("contact");
+      var inv = document.getElementById("investigation");
+      var label = document.getElementById("message-label");
+      function sync() {
+        var on = form.request_type.value === "Investigation request";
+        inv.disabled = !on;
+        label.textContent = on ? "What's been happening?" : "Your message";
+        form.subject.value = on ? "GHSF website: INVESTIGATION REQUEST" : "GHSF website: general question";
+      }
+      if (new URLSearchParams(location.search).get("type") === "investigation") {
+        form.querySelector('input[value="Investigation request"]').checked = true;
+      }
+      form.addEventListener("change", function (e) { if (e.target.name === "request_type") sync(); });
+      sync();
+    })();
+  </script>
+</body>
+</html>
